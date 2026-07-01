@@ -1,0 +1,100 @@
+@use 'lib' as *;
+
+.subscribe {
+	$self: &;
+
+	background: #2b4747;
+	color: #ffffff;
+	padding: 40px 0;
+
+	&__container {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 48px;
+
+		@include media("<=md") {
+			grid-template-columns: 100%;
+			gap: 64px;
+		}
+	}
+
+	&__info {}
+
+	&__title {
+		font-size: 16px;
+		margin-bottom: 24px;
+	}
+
+	&__desc {
+		font-size: 16px;
+		max-width: 500px;
+	}
+
+	&__form {}
+
+	&__input {
+		input {
+			width: 100%;
+			padding: 16px 0;
+			color: #ffffff;
+		}
+
+		position: relative;
+		border-bottom: 1px solid #ffffff;
+		margin-bottom: 16px;
+	}
+
+	&__button {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		padding: 16px 0;
+	}
+
+	&__checkboxes {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	&__checkbox {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 12px;
+		text-transform: uppercase;
+		cursor: pointer;
+		font-size: 12px;
+
+		input {
+			position: relative;
+			appearance: none;
+			width: 20px;
+			height: 20px;
+			box-shadow: inset 0 0 0 1px #ffffff;
+			flex: 0 0 auto;
+
+			&:checked::after {
+				opacity: 1;
+			}
+
+			&::after {
+				content: '';
+				position: absolute;
+				top: 50%; left: 50%;
+				transform: translate(-50%, -50%);
+				width: 12px; height: 12px;
+				background: #ffffff;
+				opacity: 0;
+				transition: all $transition;
+			}
+		}
+	}
+
+	&__checkbox-text {
+		a {
+			text-decoration: underline;
+		}
+	}
+
+}

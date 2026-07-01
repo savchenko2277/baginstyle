@@ -1,0 +1,141 @@
+@use 'lib' as *;
+
+.footer {
+	$self: &;
+
+	color: #ffffff;
+	background: #282321;
+	padding: fluid(80px, 40px) 0;
+	padding-bottom: 80px;
+
+	&__container {}
+
+	&__top {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 24px;
+		margin-bottom: 48px;
+	}
+
+	&__logo {
+		svg {
+			width: 200px;
+			height: auto;
+			object-fit: contain;
+		}
+	}
+
+	&__buttons {
+		display: grid;
+		grid-template-columns: repeat(4, auto);
+		gap: 4px;
+
+		@include media("<=xs") {
+			width: 100%;
+			grid-template-columns: repeat(2, 1fr)
+		}
+	}
+
+	&__button {
+		@include flex-center;
+
+		height: 48px;
+		background: #332e2b;
+		color: #ffffff;
+		min-width: 48px;
+		padding: 14px 24px;
+
+		@include media("<=xxs") {
+			grid-column: span 2;
+		}
+
+		&_light {
+			color: $textColor;
+			background: #ffffff;
+		}
+
+		&_small {
+			padding: 0;
+
+			@include media("<=xxs") {
+				grid-column: span 1;
+			}
+		}
+	}
+
+	&__items {
+		margin-bottom: 48px;
+		display: flex;
+		flex-direction: column;
+		gap: 48px;
+	}
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	&__item-text {
+		font-size: 20px;
+		color: #ffffff;
+	}
+
+	&__item-desc {
+		font-size: 16px;
+		color: #75706d;
+	}
+
+	&__list {
+		margin-bottom: 48px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 32px;
+	}
+
+	&__list-item {
+		text-transform: uppercase;
+	}
+
+	&__bottom {
+		margin-bottom: 24px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		gap: 24px;
+		flex-wrap: wrap;
+	}
+
+	&__links {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 32px;
+	}
+
+	&__links-item {
+		text-transform: uppercase;
+		color: #75706d;
+	}
+
+	&__types {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 40px;
+	}
+
+	&__type {}
+
+	&__right {
+		color: #75706d;
+	}
+
+}

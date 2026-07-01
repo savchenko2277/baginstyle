@@ -1,0 +1,93 @@
+@use 'lib' as *;
+
+.hero {
+	$self: &;
+
+	color: #ffffff;
+
+	&__swiper.swiper {
+		position: relative;
+	}
+
+	&__slide.swiper-slide {
+		position: relative;
+		height: fit-content;
+		min-height: 100dvh;
+		display: flex;
+		flex-direction: column;
+		align-items: end;
+		justify-content: end;
+		padding-bottom: 180px;
+	}
+
+	&__slide-container {
+		position: relative;
+		z-index: 1;
+	}
+
+	&__slide-title {
+		font-size: fluid(48px, 36px);
+		font-weight: 300;
+		text-transform: uppercase;
+		margin-bottom: fluid(48px, 24px);
+	}
+
+	&__slide-link {}
+
+	&__slide-bg {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			pointer-events: none;
+		}
+	}
+
+	&__pagination {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 80px;
+		z-index: 1;
+
+		&-items {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: fluid(8px, 4px);
+			max-width: 780px;
+		}
+
+		.swiper-pagination-bullet {
+			height: 2px;
+			flex: 1 1 auto;
+			width: 100%;
+			background: rgba($color: #ffffff, $alpha: 0.5);
+			border-radius: 4px;
+			opacity: 1;
+			position: relative;
+
+			&::after {
+				content: "";
+				position: absolute;
+				inset: 0;
+				width: 0%;
+				height: 100%;
+				background: #ffffff;
+			}
+
+			&.swiper-pagination-bullet-active {
+				&::after {
+					width: 100%;
+					transition: all 4s ease-in-out;
+				}
+			}
+		}
+	}
+
+}

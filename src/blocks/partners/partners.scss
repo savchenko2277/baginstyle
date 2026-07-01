@@ -1,0 +1,41 @@
+@use 'lib' as *;
+
+.partners {
+	$self: &;
+
+	padding: fluid(40px, 32px) 0;
+
+	&__container {
+		overflow-x: auto;
+	}
+
+	&__list {
+		display: grid;
+		width: 100%;
+		min-width: fit-content;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 48px;
+	}
+
+	&__list-item {
+
+		a {
+			width: 100%;
+			@include flex-center;
+			opacity: 0.5;
+			transition: all $transition;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+
+		img {
+			height: 50px;
+			max-width: none;
+			
+			object-fit: contain;
+		}
+	}
+
+}

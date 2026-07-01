@@ -1,0 +1,257 @@
+@use 'lib' as *;
+
+.header {
+	$self: &;
+
+	position: fixed;
+	top: 0; left: 0;
+	width: 100%;
+	z-index: 100;
+	color: #ffffff;
+	font-weight: 300;
+
+	&.is-scrolled {
+		color: $textColor;
+
+		#{$self}__navigation-button {
+			svg path {
+				stroke: $textColor;
+			}
+		}
+
+		#{$self}__location-icon {
+			svg path {
+				stroke: $textColor;
+			}
+		}
+
+		#{$self}__center-search {
+			svg path {
+				stroke: $textColor;
+			}
+		}
+
+		#{$self}__logo {
+			svg path {
+				fill: $textColor;
+			}
+		}
+
+		#{$self}__type {
+			border-bottom: 1px solid $textColor;
+		}
+
+        #{$self}__fixed::after {
+            backdrop-filter: none;
+			background: #ffffff;
+        }
+    }
+
+	&__fixed {
+		position: relative;
+		padding-top: 24px;
+		padding-bottom: 24px;
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+
+		@include media("<=md") {
+			padding-top: 16px;
+			padding-bottom: 24px;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			backdrop-filter: blur(20px);
+			background: transparent;
+			z-index: -1;
+		}
+	}
+
+	&__center-search {
+		display: none;
+
+		@include media("<=md") {
+			display: block;
+
+			svg {
+				width: 20px;
+				height: 20px;
+
+				path {
+					stroke: #ffffff;
+				}
+			}
+		}
+	}
+
+	&__top {
+		
+	}
+
+	&__top-container {
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+
+		@include media("<=md") {
+			flex-direction: column;
+			justify-content: space-between;
+			gap: 24px;
+		}
+	}
+
+	&__side {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 16px;
+
+		@include media("<=md") {
+			width: 100%;
+			justify-content: space-between;
+		}
+	}
+
+	&__location {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 10px;
+		text-transform: uppercase;
+		font-weight: 300;
+	}
+
+	&__location-icon {
+		
+		svg {
+			width: 16px;
+			height: 16px;
+		}
+
+		svg path {
+			stroke: #ffffff;
+		}
+	}
+
+	&__type {
+		text-transform: uppercase;
+		border-bottom: 1px solid #ffffff;
+		cursor: pointer;
+	}
+
+	&__center {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		
+		@include media("<=md") {
+			order: -1;
+			width: 100%;
+		}
+	}
+
+	&__logo {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		svg {
+			width: 124px;
+			object-fit: contain;
+		}
+
+		@include media("<=md") {
+			position: static;
+			transform: none;
+		}
+	}
+
+	&__navigation {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		
+		@include media("<=md") {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			flex: 1 1 auto;
+			z-index: 100;
+			background: #ffffff
+		}
+	}
+
+	&__navigation-button {
+
+		padding: 12px;
+
+		@include media("<=md") {
+			padding: 16px 12px;
+		}
+
+		svg {
+			width: 20px;
+			height: 20px;
+		}
+
+		svg path {
+			stroke: #ffffff;
+
+			@include media("<=md") {
+				stroke: $textColor;
+			}
+		}
+
+		&_menu {
+			display: none;
+
+			@include media("<=md") {
+				display: block;
+			}
+		}
+
+		&_search {
+			display: block;
+
+			@include media("<=md") {
+				display: none;
+			}
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		gap: 20px;
+
+		@include media("<=md") {
+			display: none;
+		}
+	}
+
+	&__list-item {
+		text-transform: uppercase;
+		a {
+			color: inherit;
+		}
+	}
+
+	&__menu {
+
+	}
+
+}
