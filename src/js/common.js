@@ -109,7 +109,50 @@ const setHeaderScroll = () => {
 	}
 
 	window.addEventListener('scroll', throttle(onScroll, 100));
-	onScroll();
+
+	if (!document.querySelector('.hero')) {
+		header.classList.add('is-scrolled')
+	} else {
+		onScroll();
+		window.addEventListener('scroll', throttle(onScroll, 100));
+	}
+}
+
+const setFiltersScript = () => {
+
+	const dropdownBlocks = document.querySelectorAll('.catalog__filter, .catalog__sort');
+
+	if(!dropdownBlocks) return;
+
+	document.addEventListener('click', (event) => {
+		if (window.innerWidth < 960) {
+			return;
+		}
+
+		const clickedTitle = event.target.closest('.catalog__filter-title, .catalog__sort-title');
+
+		const clickedInsideMenu = event.target.closest('.catalog__filter-menu, .catalog__sort-selects');
+
+		if (clickedTitle) {
+
+			const currentBlock = clickedTitle.parentElement;
+			const isActive = currentBlock.classList.contains('active');
+
+			dropdownBlocks.forEach(block => block.classList.remove('active'));
+
+			if (!isActive) {
+				currentBlock.classList.add('active');
+			}
+		} else if (!clickedInsideMenu) {
+			dropdownBlocks.forEach(block => block.classList.remove('active'));
+		}
+	});
+
+	window.addEventListener('resize', () => {
+		if (window.innerWidth < 960) {
+			dropdownBlocks.forEach(block => block.classList.remove('active'));
+		}
+	});
 }
 
 // Запуск функций
@@ -118,4 +161,5 @@ document.addEventListener('DOMContentLoaded', () => {
 	setScrollbarWidth();
 	setHeaderScroll();
 	setCatalogCards();
+	setFiltersScript();
 });

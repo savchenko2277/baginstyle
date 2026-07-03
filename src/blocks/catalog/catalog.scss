@@ -1,0 +1,241 @@
+@use 'lib' as *;
+
+.catalog {
+	$self: &;
+
+	overflow: hidden;
+
+	&__container {}
+
+	&__title {
+		font-size: 28px;
+		font-weight: 300;
+		margin-bottom: 32px;
+	}
+
+	&__menu {}
+
+	&__top {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 24px;
+		margin-bottom: 32px;
+	}
+
+	&__filters {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 8px 24px;
+	}
+
+	&__filter {
+		position: relative;
+
+		&.active {
+			#{$self}__filter-menu {
+				opacity: 1;
+				pointer-events: all;
+				visibility: visible;
+			}
+
+			#{$self}__filter-title {
+				&::after {
+					transform: rotate(180deg);
+				}
+			}
+		}
+	}
+
+	&__filter-title {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 8px;
+		cursor: pointer;
+		transition: all $transition;
+
+		&:hover {
+			opacity: 0.5;
+		}
+
+		&::after {
+			content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='none'%3E%3Cpath stroke='black' stroke-linecap='square' d='M15.833 7 10 12.833 4.167 7'/%3E%3C/svg%3E");
+			display: block;
+			width: 20px;
+			height: 20px;
+			transition: all $transition;
+		}
+	}
+
+	&__filter-menu {
+		top: calc(100% + 24px);
+		position: absolute;
+		left: 0;
+		z-index: 10;
+		min-width: 216px;
+		background: #ffffff;
+		box-shadow: 0 6px 12px #0000001a;
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		padding: 16px 0;
+	}
+
+	&__filter-bottom {
+		padding: 0 16px 0px 16px;
+	}
+
+	&__filter-selects {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 16px;
+	}
+
+	&__filter-select {
+		padding: 8px 16px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 8px;
+		cursor: pointer;
+
+		input {
+			position: relative;
+			appearance: none;
+			width: 20px;
+			height: 20px;
+			box-shadow: inset 0 0 0 1px #bdbdbd;
+			flex: 0 0 auto;
+
+			&:checked {
+				box-shadow: inset 0 0 0 1px #2b4747;
+			}
+
+			&:checked::after {
+				opacity: 1;
+			}
+
+			&::after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 14px;
+				height: 14px;
+				background: #2b4747;
+				opacity: 0;
+				transition: all $transition;
+			}
+		}
+
+		&:hover {
+			background: #f5f5f5;
+		}
+	}
+
+	&__filter-button {
+		@include flex-center;
+
+		width: 100%;
+		padding: 12px 32px;
+		background: #2b4747;
+		color: #ffffff;
+	}
+
+	&__sort {
+		position: relative;
+
+		&.active {
+			#{$self}__sort-selects {
+				opacity: 1;
+				visibility: visible;
+				pointer-events: none;
+			}
+		}
+
+		&-title {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: end;
+			gap: 8px;
+			font-weight: 300;
+			cursor: pointer;
+
+			svg {
+				width: 20px;
+				height: 20px;
+			}
+		}
+
+		&-selects {
+			top: calc(100% + 24px);
+			position: absolute;
+			right: 0;
+			z-index: 10;
+			min-width: 320px;
+			background: #ffffff;
+			box-shadow: 0 6px 12px #0000001a;
+			padding: 16px 0;
+			display: flex;
+			flex-direction: column;
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+		}
+
+		&-select {
+			padding: 8px 16px;
+			transition: all $transition;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			cursor: pointer;
+
+			&::after {
+				content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath stroke='black' stroke-linecap='square' d='M13.333 4 6 11.333 2.667 8'/%3E%3C/svg%3E");
+				width: 20px;
+				height: 20px;
+				transition: all $transition;
+				flex: 0 0 auto;
+				opacity: 0;
+				transition: all $transition;
+			}
+
+			&:has(input:checked)::after {
+				opacity: 1;
+			}
+
+			input {
+				display: none;
+			}
+
+			&:hover {
+				background: #f5f5f5;
+			}
+		}
+	}
+
+	&__cards {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 32px;
+
+		@include media("<=lg") {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 24px;
+		}
+
+		@include media("<=xs") {
+			gap: 8px;
+		}
+	}
+
+}
