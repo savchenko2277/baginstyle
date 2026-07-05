@@ -6,6 +6,10 @@
 	padding-top: 190px;
 	margin-bottom: 48px;
 
+	@include media("<=md") {
+		padding-top: 160px;
+	}
+
 	&__container {
 
 	}

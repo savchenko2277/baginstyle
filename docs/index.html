@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="stylesheet" href="css/style.css?v=1783060455656">
-    <link rel="stylesheet" href="css/swiper.css?v=1783060455656">
+    <link rel="stylesheet" href="css/style.css?v=1783215471060">
+    <link rel="stylesheet" href="css/swiper.css?v=1783215471060">
     <title></title>
 </head>
 <body id="home">
@@ -16,7 +16,8 @@
                 <div class="header__side">
                     <div class="header__location">
                         <div class="header__location-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" width="16" height="16">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" width="16"
+                                height="16">
                                 <path stroke="#282321" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="0.556"
                                     d="M13 6.778C13 10.667 8 14 8 14s-5-3.333-5-7.222a5 5 0 1 1 10 0"></path>
@@ -88,34 +89,75 @@
                                 d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM21 21l-4.35-4.35"></path>
                         </svg>
                     </button>
-                    <button type="button" class="header__navigation-button">
+                    <a href="likes.html" class="header__navigation-button">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
                             <path stroke="currentColor" stroke-linecap="square"
                                 d="M17.367 3.842a4.583 4.583 0 0 0-6.484 0L10 4.725l-.883-.883a4.584 4.584 0 1 0-6.484 6.483l.884.883L10 17.692l6.483-6.484.884-.883a4.585 4.585 0 0 0 0-6.483Z">
                             </path>
                         </svg>
-                    </button>
-                    <button type="button" class="header__navigation-button">
+                    </a>
+                    <a href="basket.html" class="header__navigation-button">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
                             <path stroke="#282321" stroke-miterlimit="10" stroke-width="1.2" d="M16 18.3H4V7.5h12z">
                             </path>
                             <path stroke="#282321" stroke-miterlimit="10" stroke-width="1.2"
                                 d="M6.4 10.5V6.3a3.6 3.6 0 1 1 7.2 0v4.2"></path>
                         </svg>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
-        <ul class="header__list container">
-            <li class="header__list-item"><a href="#">Страница 1</a></li>
-            <li class="header__list-item"><a href="#">Страница 2</a></li>
-            <li class="header__list-item"><a href="#">Страница 3</a></li>
-            <li class="header__list-item"><a href="#">Страница 4</a></li>
-        </ul>
+        <div class="header__mobile-menu">
+            <ul class="header__list container">
+                <li class="header__list-item"><a href="#">Страница 1</a></li>
+                <li class="header__list-item"><a href="#">Страница 2</a></li>
+                <li class="header__list-item"><a href="#">Страница 3</a></li>
+                <li class="header__list-item header__menu-open"><a href="#">
+                        Покупателям
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none"
+                            class="ContactButton-module-scss-module__sGPveG__arrow">
+                            <path stroke="#282321" stroke-linecap="square" d="M12.667 5.6 8 10.267 3.333 5.6"></path>
+                        </svg>
+                    </a></li>
+            </ul>
+        </div>
     </div>
 
     <div class="header__menu">
-
+        <div class="header__menu-container container">
+            <div class="header__info">
+                <h2 class="header__menu-title">Покупателям</h2>
+                <p class="header__adreess">г. Калининград, ТРЦ Европа, ул.&#160;Театральная 30, 2&#160;этаж</p>
+                <p class="header__time">с&#160;9:00 до&#160;21:00, Пн&#160;&#8212; Чт&#160;и&#160;Вс&#160;&#8212; с&#160;9:00 до&#160;22:00, Пт-Сб</p>
+                <p class="header__menu-desc">Наш адрес и&#160;график работы</p>
+            </div>
+            <div class="header__menu-content">
+                <div class="header__buttons">
+                    <button class="header__button header__button_light">Заказать звонок</button>
+                    <button class="header__button">Чат с&#160;поддержкой</button>
+                    <a class="header__button header__button_small" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none">
+                            <path fill="#000" fill-rule="evenodd"
+                                d="M7.241 15.83q6.998-3.048 9.332-4.019c4.444-1.85 5.366-2.17 5.968-2.179.13-.003.428.032.62.186a.65.65 0 0 1 .227.432c.02.124.048.41.026.63-.24 2.531-1.283 8.669-1.811 11.504-.224 1.2-.666 1.6-1.094 1.642-.928.086-1.636-.615-2.535-1.204-1.408-.921-2.205-1.497-3.571-2.4-1.58-1.04-.557-1.612.345-2.547.237-.243 4.33-3.968 4.41-4.307.01-.042.02-.198-.074-.282-.092-.083-.23-.054-.332-.032q-.21.049-6.75 4.461c-.64.439-1.215.653-1.734.64-.572-.013-1.67-.323-2.486-.589-1.001-.326-1.798-.499-1.728-1.05q.054-.435 1.187-.886"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                    <a class="header__button header__button_small" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none">
+                            <path fill="#000"
+                                d="M17.043 23.066c-7.293 0-11.453-4.999-11.626-13.319h3.655c.121 6.106 2.813 8.695 4.947 9.226V9.747h3.44v5.267c2.106-.227 4.32-2.627 5.066-5.267h3.44a10.16 10.16 0 0 1-4.682 6.64 10.54 10.54 0 0 1 5.479 6.679h-3.786a6.59 6.59 0 0 0-5.52-4.762v4.762z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+                <ul class="header__menu-list">
+                    <li class="header__menu-list-item"><a href="#">Оплата</a></li>
+                    <li class="header__menu-list-item"><a href="#">Доставка</a></li>
+                    <li class="header__menu-list-item"><a href="#">Возврат</a></li>
+                    <li class="header__menu-list-item"><a href="#">Контакты</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 </header>
 
@@ -1510,7 +1552,7 @@
     </div>
 </footer>
 
-<script src="js/common.js?v=1783060455656"></script>
+<script src="js/common.js?v=1783215471060"></script>
 </body>
 
 </html>

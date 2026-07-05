@@ -117,7 +117,7 @@
 		position: absolute;
 		top: 16px; right: 16px;
 		width: 24px; height: 24px;
-		z-index: 2;
+		z-index: 1;
 	}
 
 	&__show {
@@ -127,7 +127,7 @@
 		bottom: 24px;
 		left: 50%;
 		transform: translateX(-50%);
-		z-index: 2;
+		z-index: 1;
 		background: #ffffff;
 		padding: 16px 32px;
 		text-transform: uppercase;

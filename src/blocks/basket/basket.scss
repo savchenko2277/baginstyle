@@ -1,0 +1,36 @@
+@use 'lib' as *;
+
+.basket {
+	$self: &;
+
+	padding-bottom: 120px;
+
+	&__container {
+
+	}
+
+	&__title {
+		font-size: 28px;
+		font-weight: 300;
+		margin-bottom: 16px;
+	}
+
+	&__available {
+		margin-bottom: 48px;
+	}
+
+	&__confirm {
+		@include flex-center;
+
+		padding: 16px 32px;
+		background: #2b4747;
+		color: #ffffff;
+		width: 100%;
+		max-width: 460px;
+
+		@include media("<=xs") {
+			max-width: 100%;
+		}
+	}
+
+}

@@ -5,6 +5,15 @@
 
 	overflow: hidden;
 
+	.catalog__filter-menu,
+	.catalog__sort-selects {
+		z-index: 999;
+	}
+
+	&.catalog-items {
+		padding: 0;
+	}
+
 	&__container {}
 
 	&__title {
@@ -14,7 +23,19 @@
 		max-width: auto;
 	}
 
-	&__menu {}
+	&__menu {
+		position: relative;
+		z-index: 2;
+
+		@include media("<=md") {
+			&:has(.catalog__filters-wrapper.active) {
+				z-index: 200;
+			}
+			&:has(.catalog__sort.active) {
+				z-index: 200;
+			}
+		}
+	}
 
 	&__top {
 		display: flex;
@@ -24,14 +45,56 @@
 		flex-wrap: wrap;
 		gap: 24px;
 		margin-bottom: 32px;
+		position: relative;
+		z-index: 2;
+	}
+
+	&__filters-wrapper {
+		z-index: 300;
+		@include media("<=md") {
+			position: fixed;
+			inset: 0;
+			display: flex;
+			align-items: flex-end;
+			z-index: 1000;
+
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+
+			&.active {
+				opacity: 1;
+				visibility: visible;
+				pointer-events: all;
+			}
+		}
 	}
 
 	&__filters {
 		display: flex;
 		flex-direction: row;
-		flex-wrap: wrap;
-		align-items: center;
 		gap: 8px 24px;
+
+		@include media("<=md") {
+			background: #fff;
+			width: 100%;
+			padding: 48px 24px 48px 24px;
+			display: flex;
+			flex-direction: column;
+			gap: 24px;
+		}
+	}
+
+	&__open-filters {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 8px;
+		font-weight: 300;
+
+		@include media(">md") {
+			display: none;
+		}
 	}
 
 	&__filter {
@@ -50,6 +113,21 @@
 				}
 			}
 		}
+
+		@include media("<=md") {
+			display: grid;
+			transition: all $transition;
+			grid-template-rows: max-content 0fr;
+
+			&.active {
+				grid-template-rows: max-content 1fr;
+
+				#{$self}__filter-title {
+					margin-bottom: 8px;
+				}
+			}
+		}
+
 	}
 
 	&__filter-title {
@@ -71,6 +149,11 @@
 			height: 20px;
 			transition: all $transition;
 		}
+
+		@include media("<=md") {
+			justify-content: space-between;
+			font-size: 16px;
+		}
 	}
 
 	&__filter-menu {
@@ -85,16 +168,38 @@
 		visibility: hidden;
 		pointer-events: none;
 		padding: 16px 0;
+		z-index: 1;
+
+		@include media("<=md") {
+			position: static;
+			opacity: 1;
+			pointer-events: all;
+			visibility: visible;
+			overflow: hidden;
+			padding: 0px;
+			background: none;
+			box-shadow: none;
+			max-width: 100%;
+		}
 	}
 
 	&__filter-bottom {
 		padding: 0 16px 0px 16px;
+
+		@include media("<=md") {
+			padding: 0;
+		}
 	}
 
 	&__filter-selects {
 		display: flex;
 		flex-direction: column;
 		margin-bottom: 16px;
+
+		@include media("<=md") {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+		}
 	}
 
 	&__filter-select {
@@ -137,6 +242,10 @@
 
 		&:hover {
 			background: #f5f5f5;
+		}
+
+		@include media("<=md") {
+			padding: 8px 0;
 		}
 	}
 
@@ -189,6 +298,17 @@
 			opacity: 0;
 			visibility: hidden;
 			pointer-events: none;
+
+			@include media("<=md") {
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				z-index: 101;
+				top: auto;
+				padding: 24px;
+				gap: 16px;
+			}
 		}
 
 		&-select {
@@ -220,6 +340,10 @@
 
 			&:hover {
 				background: #f5f5f5;
+			}
+
+			@include media("<=md") {
+				padding: 0;
 			}
 		}
 	}
